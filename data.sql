@@ -1,3 +1,4 @@
+-- Assignment 1
 INSERT INTO animals
     (name, date_of_birth, weight_kg, neutered, escape_attempts)
 VALUES
@@ -5,3 +6,7 @@ VALUES
     ('Gabumon', '2018-11-15', 8, TRUE, 2),
     ('Pikachu', '2021-01-07', 15.04, FALSE, 1),
     ('Devimon', '2017-05-12', 11, TRUE, 5);
+
+-- Assignment 2
+ALTER TABLE animals
+ADD COLUMN species VARCHAR(250);
