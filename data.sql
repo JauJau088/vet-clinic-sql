@@ -18,3 +18,48 @@ VALUES
     ('Boarmon', '2005-06-07', 20.4, TRUE, 7),
     ('Blossom', '1998-10-13', 17, TRUE, 3),
     ('Ditto', '2022-05-14', 22, TRUE, 4);
+
+-- Update the species column to unspecified then roll back the change
+BEGIN;
+
+UPDATE animals
+SET species = 'unspecified';
+
+ROLLBACK;
+
+-- Update the species column to digimon and pokemon depending on the name's suffix
+BEGIN;
+
+UPDATE animals
+SET species = 'digimon'
+WHERE name LIKE '%mon';
+
+UPDATE animals
+SET species = 'pokemon'
+WHERE species IS NULL;
+
+COMMIT;
+
+-- Delete all records and rollback
+BEGIN;
+
+DELETE FROM animals;
+
+ROLLBACK;
+
+-- Delete all animals born after Jan 1st, 2022 & update weight to be non-negative
+DELETE FROM animals
+WHERE date_of_birth > '2022-01-01';
+
+SAVEPOINT delete_after_2022;
+
+UPDATE animals
+SET weight_kg = weight_kg * -1;
+
+ROLLBACK TO SAVEPOINT delete_after_2022;
+
+UPDATE animals
+SET weight_kg = weight_kg * -1
+WHERE weight_kg < 0;
+
+COMMIT;
