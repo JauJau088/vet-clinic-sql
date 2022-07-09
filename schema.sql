@@ -23,3 +23,12 @@ CREATE TABLE species (
     id INTEGER primary key GENERATED ALWAYS AS IDENTITY,
     name VARCHAR(250)
 );
+
+ALTER TABLE animals
+DROP COLUMN species,
+ADD COLUMN species_id INTEGER,
+ADD FOREIGN KEY (species_id)
+REFERENCES species(id),
+ADD COLUMN owner_id INTEGER,
+ADD FOREIGN KEY (owner_id)
+REFERENCES owners(id);
