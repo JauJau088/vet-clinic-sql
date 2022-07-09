@@ -80,3 +80,11 @@ INSERT INTO species
 VALUES
     ('pokemon'),
     ('digimon');
+
+UPDATE animals
+SET species_id = (SELECT id FROM species WHERE name = 'digimon')
+WHERE name LIKE '%mon';
+
+UPDATE animals
+SET species_id = (SELECT id FROM species WHERE name = 'pokemon')
+WHERE species_id IS NULL;
