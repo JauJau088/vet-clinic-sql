@@ -51,3 +51,13 @@ CREATE TABLE visits (
     vet_id INTEGER REFERENCES vets(id),
     visit_date DATE
 );
+
+--# Week2 pair programming 1
+ALTER TABLE owners ADD COLUMN email VARCHAR(120);
+
+-- 1.1 
+CREATE INDEX visits_animal_id_asc ON visits(animal_id ASC);
+ -- 2.1 
+CREATE INDEX visits_vet_id_asc ON visits(vet_id ASC);
+-- 3.1
+CREATE INDEX owners_email_desc ON owners(email DESC);
