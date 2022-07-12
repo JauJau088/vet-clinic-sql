@@ -51,3 +51,6 @@ CREATE TABLE visits (
     vet_id INTEGER REFERENCES vets(id),
     visit_date DATE
 );
+
+--# Week2 pair programming 1
+ALTER TABLE owners ADD COLUMN email VARCHAR(120);
