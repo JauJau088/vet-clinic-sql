@@ -1,5 +1,7 @@
 # Vet Clinic SQL Database
 
+![](./vet-clinic-diagram.png)
+
 > Vet Clinic SQL Database is a relational database exercise to create the data structure for a vet clinic. The database contains information about:
 > - animals
 > - animals' owners
